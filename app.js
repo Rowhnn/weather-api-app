@@ -4,7 +4,7 @@ const app = express();
 const port = 2323;
 const https = require("https");
 
-app.use(cors({ origin: 'https://yourusername.github.io' })); // your GitHub Pages URL
+app.use(cors({ origin: 'https://rowhnn.github.io' })); // your GitHub Pages URL
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
