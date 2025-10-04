@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather App</title>
-  </head>
-  <body>
-    <center>
-      <form action="/" method="post">
-        <label for="cityInput">City Name:</label>
-        <input id="cityInput" name="cityName" type="text" />
-        <button type="submit">Go!</button>
-      </form>
-    </center>
-  </body>
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Weather App</title></head>
+<body>
+  <center>
+    <label for="cityInput">City Name:</label>
+    <input id="cityInput" name="cityName" type="text" />
+    <button onclick="fetchWeather()">Go!</button>
+    <div id="result"></div>
+  </center>
+  <script>
+    async function fetchWeather() {
+      const city = document.getElementById('cityInput').value;
+      const response = await fetch('https://weather-api-app-production-737a.up.railway.app/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({ cityName: city })
+      });
+      const text = await response.text();
+      document.getElementById('result').innerHTML = text;
+    }
+  </script>
+</body>
 </html>
