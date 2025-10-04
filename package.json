@@ -9,6 +9,7 @@
   "author": "Rohan",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^5.1.0",
     "supervisor": "^0.12.0"
   }
